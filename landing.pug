@@ -1,3 +1,13 @@
+-var titulo = "Título Principal" 
+-var titulos = ["Titulo principal","subtítulo uno","subtítulo dos","subtítulo tres"]
+-var usuario = "Arlo"
+mixin caja(imagen,titulo,contenido)
+	.caja
+			.caja__imagen: img(src="img/"+imagen)
+			.caja__contenido
+				h2=titulo
+				p=contenido
+				a.buton Leer más
 doctype html
 html
 	head
@@ -6,5 +16,27 @@ html
 	body
 		header
 			h1 Platzi Games
-			a.boton Registro
-	
+			if usuario
+				a Hola #{usuario}
+			else	
+				a.boton Registro
+	section.intro
+		.intro__imagen
+			img(src="img/imagen.png")
+		.intro__contenido
+			h2=titulos[0]
+			p
+				| Lorem ipsum dolor sit amet, 
+				| consectetur adipisicing elit. 
+				| Ex minus, animi, debitis quia 
+				| reiciendis delectus at laboriosam 
+				| molestias accusantium ratione, 
+				| voluptatum porro earum totam maiores
+				| itaque eligendi. Dignissimos, 
+				| recusandae corrupti.
+				span Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt culpa minus voluptatem necessitatibus, ipsa voluptatum!
+			a.boton leer más
+	main.contenido
+		+caja("imagen.png",titulos[1],"lorem5")
+		+caja("imagen.png",titulos[2],"lorem6")
+		+caja("imagen.png",titulos[3],"lorem7")
